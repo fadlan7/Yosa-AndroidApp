@@ -1,12 +1,17 @@
 package com.yosa
 
+import android.content.Intent
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.yosa.adapter.ListLevelAdapter
 import com.yosa.databinding.ActivityMainBinding
-import com.yosa.model.Level
+import com.yosa.data.model.Level
+import com.yosa.ui.detail.YogaDetailActivity
+import com.yosa.ui.yogalist.YogaListActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,5 +48,20 @@ class MainActivity : AppCompatActivity() {
         rvLevel.layoutManager = LinearLayoutManager(this)
         val listLevelAdapter = ListLevelAdapter(list)
         rvLevel.adapter = listLevelAdapter
+
+        if (applicationContext.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            rvLevel.layoutManager = GridLayoutManager(this, 2)
+        } else {
+            rvLevel.layoutManager = LinearLayoutManager(this)
+        }
+
+        listLevelAdapter.setOnItemClickCallback(object : ListLevelAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Level) {
+                val intent = Intent(this@MainActivity, YogaDetailActivity::class.java)
+//                intent.putExtra(YogaListActivity.EXTRA_LEVEL, data)
+                startActivity(intent)
+            }
+        })
     }
+
 }
