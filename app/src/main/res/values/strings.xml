@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Yosa</string>
+    <string name="yoga_image">Yoga Images</string>
+    <string name="item_name">Item Name</string>
+    
+    <string-array name="data_level">
+        <item>Beginner</item>
+        <item>Intermediate</item>
+    </string-array>
+
+    <integer-array name="data_photo">
+        <item>@drawable/ic_beginnerimg</item>
+        <item>@drawable/ic_intermediateimg</item>
+    </integer-array>
 </resources>
