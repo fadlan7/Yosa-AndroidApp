@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yosa">
 
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Yosa">
+        <receiver
+            android:name=".ui.broadcastreceiver.TimerExpiredReciver"
+            android:enabled="true"
+            android:exported="false"></receiver>
 
         <activity
             android:name=".ui.detail.YogaDetailActivity"

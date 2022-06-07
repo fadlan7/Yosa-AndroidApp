@@ -1,17 +1,56 @@
 package com.yosa.ui.detail
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.app.PendingIntent.FLAG_IMMUTABLE
+import android.app.PendingIntent.FLAG_UPDATE_CURRENT
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import android.os.Build
+import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
 import android.os.CountDownTimer
-import com.yosa.R
+import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.util.Util
 import com.yosa.databinding.ActivityYogaDetailBinding
+import com.yosa.ui.broadcastreceiver.TimerExpiredReciver
 import com.yosa.util.PrefUtil
 import java.util.*
 
 class YogaDetailActivity : AppCompatActivity() {
 
+    companion object {
+        fun setAlarm(context: Context, nowSeconds: Long, secondsRemaining: Long): Long {
+            val wakeUpTime = (nowSeconds + secondsRemaining) * 1000
+            val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            val intent = Intent(context, TimerExpiredReciver::class.java)
 
+            val pi = PendingIntent.getBroadcast(
+                context,
+                0,
+                intent,
+                FLAG_UPDATE_CURRENT or FLAG_IMMUTABLE
+            )
+
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, wakeUpTime, pi)
+            PrefUtil.setAlarmSetTime(nowSeconds, context)
+            return wakeUpTime
+
+
+        }
+
+        fun removeAlarm(context: Context) {
+            val intent = Intent(context, TimerExpiredReciver::class.java)
+            val pi = PendingIntent.getBroadcast(context, 0, intent, FLAG_UPDATE_CURRENT or FLAG_IMMUTABLE)
+            val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+
+            alarmManager.cancel(pi)
+            PrefUtil.setAlarmSetTime(0, context)
+        }
+
+        val nowSeconds: Long
+            get() = Calendar.getInstance().timeInMillis / 1000
+    }
 
     enum class TimerState {
         Stopped, Paused, Running
@@ -52,6 +91,7 @@ class YogaDetailActivity : AppCompatActivity() {
 
         initTimer()
 
+        removeAlarm(this)
         //remove bg timer, hide notif
     }
 
@@ -60,6 +100,7 @@ class YogaDetailActivity : AppCompatActivity() {
 
         if (timerState == TimerState.Running) {
             timer.cancel()
+            val wakeUpTime = setAlarm(this, nowSeconds, secondsRemaining)
             //start bg timer and show notif
         } else if (timerState == TimerState.Paused) {
             //show notif
@@ -84,9 +125,14 @@ class YogaDetailActivity : AppCompatActivity() {
             timerLengthSeconds
 
         //change secondsRemaining to where bg timer stopped
+        val alarmSetTime = PrefUtil.getAlarmSetTime(this)
+        if (alarmSetTime > 0)
+            secondsRemaining -= nowSeconds - alarmSetTime
 
         //resume where we left off
-        if (timerState == TimerState.Running)
+        if (secondsRemaining <= 0)
+            onTimerFinished()
+        else if (timerState == TimerState.Running)
             startTimer()
 
         updateButtons()

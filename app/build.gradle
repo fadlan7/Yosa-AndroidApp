@@ -62,4 +62,7 @@ dependencies {
     //progressbar
     implementation 'me.zhanghai.android.materialprogressbar:library:1.6.1'
 
+
+    implementation 'androidx.work:work-runtime-ktx:2.7.0'
+
 }

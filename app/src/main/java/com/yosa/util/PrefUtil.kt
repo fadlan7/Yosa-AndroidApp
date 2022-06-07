@@ -31,7 +31,7 @@ class PrefUtil {
             return YogaDetailActivity.TimerState.values()[ordinal]
         }
 
-        fun setTimerState(state: YogaDetailActivity.TimerState, context: Context){
+        fun setTimerState(state: YogaDetailActivity.TimerState, context: Context) {
             val editor = PreferenceManager.getDefaultSharedPreferences(context).edit()
             val ordinal = state.ordinal
             editor.putInt(TIMER_STATE_ID, ordinal)
@@ -48,6 +48,19 @@ class PrefUtil {
         fun setSecondsRemaining(seconds: Long, context: Context) {
             val editor = PreferenceManager.getDefaultSharedPreferences(context).edit()
             editor.putLong(SECONDS_REMAINING_ID, seconds)
+            editor.apply()
+        }
+
+        private const val ALARM_SET_TIME_ID = "com.yosa.timer.background_time"
+
+        fun getAlarmSetTime(context: Context): Long {
+            val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+            return preferences.getLong(ALARM_SET_TIME_ID, 0)
+        }
+
+        fun setAlarmSetTime(time: Long, context: Context){
+            val editor = PreferenceManager.getDefaultSharedPreferences(context).edit()
+            editor.putLong(ALARM_SET_TIME_ID, time)
             editor.apply()
         }
     }
