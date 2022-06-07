@@ -1,5 +1,6 @@
 package com.yosa.ui.detail
 
+import android.annotation.SuppressLint
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.app.PendingIntent.FLAG_IMMUTABLE
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.util.Util
 import com.yosa.databinding.ActivityYogaDetailBinding
 import com.yosa.ui.broadcastreceiver.TimerExpiredReciver
+import com.yosa.util.NotificationUtil
 import com.yosa.util.PrefUtil
 import java.util.*
 
@@ -91,8 +93,11 @@ class YogaDetailActivity : AppCompatActivity() {
 
         initTimer()
 
+        //remove bg timer
         removeAlarm(this)
-        //remove bg timer, hide notif
+
+        // hide notification
+        NotificationUtil.hideTimerNotification(this)
     }
 
     override fun onPause() {
@@ -100,10 +105,15 @@ class YogaDetailActivity : AppCompatActivity() {
 
         if (timerState == TimerState.Running) {
             timer.cancel()
+            //start bg timer
             val wakeUpTime = setAlarm(this, nowSeconds, secondsRemaining)
-            //start bg timer and show notif
+
+            //show notif
+            NotificationUtil.showTimerRunning(this, wakeUpTime)
+
         } else if (timerState == TimerState.Paused) {
             //show notif
+            NotificationUtil.showTimerPaused(this)
         }
 
         PrefUtil.setPreviousTimerLengthSeconds(timerLengthSeconds, this)
@@ -177,6 +187,7 @@ class YogaDetailActivity : AppCompatActivity() {
         binding.progressCountdown.max = timerLengthSeconds.toInt()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun updateCountdownUI() {
         val minutesUntilFinished = secondsRemaining / 60
         val secondsInMinuteUntilFinished = secondsRemaining - minutesUntilFinished * 60
