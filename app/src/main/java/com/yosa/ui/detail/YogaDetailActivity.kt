@@ -178,7 +178,7 @@ class YogaDetailActivity : AppCompatActivity() {
 
     private fun setNewTimerLength() {
         val lengthInMinutes = PrefUtil.getTimerLength(this)
-        timerLengthSeconds = (lengthInMinutes * 60L)
+        timerLengthSeconds = (lengthInMinutes * 30L)
         binding.progressCountdown.max = timerLengthSeconds.toInt()
     }
 
