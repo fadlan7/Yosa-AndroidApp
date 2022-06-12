@@ -1,45 +1,42 @@
 package com.yosa.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.yosa.R
 import com.yosa.data.model.Level
+import com.yosa.databinding.ItemCardBinding
+import com.yosa.ui.yogalist.YogaListActivity
 
 class ListLevelAdapter(private val listLevel: ArrayList<Level>) :
     RecyclerView.Adapter<ListLevelAdapter.ListViewHolder>() {
 
-    private lateinit var onItemClickCallback: OnItemClickCallback
-    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback
-    }
-
-
-    class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var imgPhoto: ImageView = itemView.findViewById(R.id.iv_photo)
-        var tvItem: TextView = itemView.findViewById(R.id.tv_item_name)
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
-        val view: View =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)
-        return ListViewHolder(view)
+        val binding = ItemCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ListViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val (itemName, photo) = listLevel[position]
-        holder.imgPhoto.setImageResource(photo)
-        holder.tvItem.text = itemName
-        holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(listLevel[holder.adapterPosition]) }
+        holder.bind(listLevel[position])
     }
 
-    override fun getItemCount(): Int = listLevel.size
-
-    interface OnItemClickCallback {
-        fun onItemClicked(data: Level)
+    override fun getItemCount(): Int {
+        return listLevel.size
     }
 
+    class ListViewHolder(private var binding: ItemCardBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(level: Level) {
+            binding.apply {
+                imgLevel.setImageResource(level.photo)
+                tvLevel.text = level.levelName
+
+                itemView.setOnClickListener {
+                    Intent(itemView.context, YogaListActivity::class.java).also {
+                        itemView.context.startActivity(it)
+                    }
+                }
+            }
+        }
+    }
 }

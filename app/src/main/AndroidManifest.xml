@@ -11,15 +11,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Yosa">
+        <activity
+            android:name=".ui.onboarding.OnboardActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <receiver
             android:name=".ui.broadcastreceiver.TimerNotificationActionReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
-                <action android:name="stop"/>
-                <action android:name="pause"/>
-                <action android:name="resume"/>
-                <action android:name="start"/>
+                <action android:name="stop" />
+                <action android:name="pause" />
+                <action android:name="resume" />
+                <action android:name="start" />
             </intent-filter>
         </receiver>
         <receiver
@@ -34,14 +44,8 @@
             android:name=".ui.yogalist.YogaListActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".ui.main.MainActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>
