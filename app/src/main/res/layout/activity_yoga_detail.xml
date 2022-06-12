@@ -17,59 +17,59 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="600dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tabs" />
 
-    <TextView
-        android:id="@+id/tv_countdown"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="38dp"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="@+id/progress_countdown"
-        app:layout_constraintEnd_toEndOf="@+id/progress_countdown"
-        app:layout_constraintStart_toStartOf="@+id/progress_countdown"
-        tools:text="10:00" />
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_countdown"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginBottom="38dp"-->
+    <!--        android:textSize="25sp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/progress_countdown"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/progress_countdown"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/progress_countdown"-->
+    <!--        tools:text="10:00" />-->
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_play"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="24dp"
-        android:contentDescription="@string/play_button"
-        app:tint="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/fab_pause"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_play_arrow_24" />
+    <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+    <!--        android:id="@+id/fab_play"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="32dp"-->
+    <!--        android:layout_marginBottom="24dp"-->
+    <!--        android:contentDescription="@string/play_button"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/fab_pause"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:srcCompat="@drawable/ic_baseline_play_arrow_24"-->
+    <!--        app:tint="@android:color/white" />-->
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_pause"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:contentDescription="@string/pause_button"
-        app:tint="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_pause_24" />
+    <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+    <!--        android:id="@+id/fab_pause"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginBottom="24dp"-->
+    <!--        android:contentDescription="@string/pause_button"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:srcCompat="@drawable/ic_baseline_pause_24"-->
+    <!--        app:tint="@android:color/white" />-->
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_stop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="24dp"
-        android:contentDescription="@string/stop_button"
-        app:tint="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/fab_pause"
-        app:srcCompat="@drawable/ic_baseline_stop_24" />
+    <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+    <!--        android:id="@+id/fab_stop"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginEnd="32dp"-->
+    <!--        android:layout_marginBottom="24dp"-->
+    <!--        android:contentDescription="@string/stop_button"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/fab_pause"-->
+    <!--        app:srcCompat="@drawable/ic_baseline_stop_24"-->
+    <!--        app:tint="@android:color/white" />-->
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -78,26 +78,27 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
-    <TableRow
-        android:id="@+id/hr"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/blue_main"
-        app:layout_constraintBottom_toTopOf="@+id/progress_countdown"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <!--    <TableRow-->
+    <!--        android:id="@+id/hr"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="1dp"-->
+    <!--        android:layout_marginBottom="6dp"-->
+    <!--        android:background="@color/blue_main"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/progress_countdown"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent" />-->
 
-    <me.zhanghai.android.materialprogressbar.MaterialProgressBar
-        android:id="@+id/progress_countdown"
-        style="@style/Widget.MaterialProgressBar.ProgressBar"
-        android:layout_width="110dp"
-        android:layout_height="111dp"
-        android:layout_marginBottom="16dp"
-        android:progress="100"
-        app:layout_constraintBottom_toTopOf="@+id/fab_pause"
-        app:layout_constraintEnd_toEndOf="@+id/fab_pause"
-        app:layout_constraintHorizontal_bias="0.434"
-        app:layout_constraintStart_toStartOf="@+id/fab_pause" />
+    <!--    <me.zhanghai.android.materialprogressbar.MaterialProgressBar-->
+    <!--        android:id="@+id/progress_countdown"-->
+    <!--        style="@style/Widget.MaterialProgressBar.ProgressBar"-->
+    <!--        android:layout_width="110dp"-->
+    <!--        android:layout_height="111dp"-->
+    <!--        android:layout_marginBottom="8dp"-->
+    <!--        android:progress="100"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/fab_pause"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/fab_pause"-->
+    <!--        app:layout_constraintHorizontal_bias="0.434"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/fab_pause" />-->
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -105,4 +106,89 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.72" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableRow
+                android:id="@+id/hr"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginBottom="6dp"
+                android:background="@color/blue_main"
+                app:layout_constraintBottom_toTopOf="@+id/progress_countdown"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_countdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="38dp"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="@+id/progress_countdown"
+                app:layout_constraintEnd_toEndOf="@+id/progress_countdown"
+                app:layout_constraintStart_toStartOf="@+id/progress_countdown"
+                tools:text="10:00" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginBottom="24dp"
+                android:contentDescription="@string/play_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/fab_pause"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/ic_baseline_play_arrow_24"
+                app:tint="@android:color/white" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_pause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:contentDescription="@string/pause_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/ic_baseline_pause_24"
+                app:tint="@android:color/white" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_stop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="24dp"
+                android:contentDescription="@string/stop_button"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/fab_pause"
+                app:srcCompat="@drawable/ic_baseline_stop_24"
+                app:tint="@android:color/white" />
+
+            <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+                android:id="@+id/progress_countdown"
+                style="@style/Widget.MaterialProgressBar.ProgressBar"
+                android:layout_width="110dp"
+                android:layout_height="111dp"
+                android:layout_marginBottom="8dp"
+                android:progress="100"
+                app:layout_constraintBottom_toTopOf="@+id/fab_pause"
+                app:layout_constraintEnd_toEndOf="@+id/fab_pause"
+                app:layout_constraintHorizontal_bias="0.434"
+                app:layout_constraintStart_toStartOf="@+id/fab_pause" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

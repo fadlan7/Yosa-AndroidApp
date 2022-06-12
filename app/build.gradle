@@ -23,6 +23,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        aaptOptions {
+            noCompress "tflite"
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -33,7 +36,15 @@ android {
     }
     buildFeatures{
         viewBinding true
+        dataBinding true
+        mlModelBinding true
     }
+
+    aaptOptions {
+        noCompress "tflite"
+        // or noCompress "lite"
+    }
+
 }
 
 dependencies {
@@ -74,4 +85,29 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
     implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.6"
+
+    // CameraX
+    def camerax_version = "1.1.0-alpha09"
+    implementation "androidx.camera:camera-core:${camerax_version}"
+    implementation "androidx.camera:camera-camera2:${camerax_version}"
+    implementation "androidx.camera:camera-lifecycle:${camerax_version}"
+    implementation 'androidx.camera:camera-view:1.0.0-alpha29'
+
+    //Tensorflow lite
+    implementation 'org.tensorflow:tensorflow-lite:2.4.0'
+    implementation 'org.tensorflow:tensorflow-lite-gpu:2.3.0'
+    implementation 'org.tensorflow:tensorflow-lite-support:0.2.0'
+    implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0'
+
+    // Pose detection with default models
+    implementation 'com.google.mlkit:pose-detection:17.0.1-beta6'
+    // Pose detection with accurate models
+    implementation 'com.google.mlkit:pose-detection-accurate:17.0.1-beta6'
+
+    // Tensorflow lite dependencies
+    implementation 'org.tensorflow:tensorflow-lite:0.0.0-nightly-SNAPSHOT'
+    implementation 'org.tensorflow:tensorflow-lite-gpu:0.0.0-nightly-SNAPSHOT'
+    implementation 'org.tensorflow:tensorflow-lite-support:0.0.0-nightly-SNAPSHOT'
+
+    implementation 'com.google.guava:guava:27.1-android'
 }
