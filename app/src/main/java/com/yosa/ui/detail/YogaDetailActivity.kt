@@ -12,7 +12,12 @@ import android.os.Build.VERSION.SDK_INT
 import android.os.Bundle
 import android.os.CountDownTimer
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.util.Util
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
+import com.yosa.Constanta.EXTRA_DETAIL
+import com.yosa.Constanta.TAB_TITLES
 import com.yosa.databinding.ActivityYogaDetailBinding
 import com.yosa.ui.broadcastreceiver.TimerExpiredReciver
 import com.yosa.util.NotificationUtil
@@ -20,43 +25,6 @@ import com.yosa.util.PrefUtil
 import java.util.*
 
 class YogaDetailActivity : AppCompatActivity() {
-
-    companion object {
-        fun setAlarm(context: Context, nowSeconds: Long, secondsRemaining: Long): Long {
-            val wakeUpTime = (nowSeconds + secondsRemaining) * 1000
-            val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-            val intent = Intent(context, TimerExpiredReciver::class.java)
-
-            val pi = PendingIntent.getBroadcast(
-                context,
-                0,
-                intent,
-                FLAG_UPDATE_CURRENT or FLAG_IMMUTABLE
-            )
-
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, wakeUpTime, pi)
-            PrefUtil.setAlarmSetTime(nowSeconds, context)
-            return wakeUpTime
-
-
-        }
-
-        fun removeAlarm(context: Context) {
-            val intent = Intent(context, TimerExpiredReciver::class.java)
-            val pi = PendingIntent.getBroadcast(context, 0, intent, FLAG_UPDATE_CURRENT or FLAG_IMMUTABLE)
-            val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-
-            alarmManager.cancel(pi)
-            PrefUtil.setAlarmSetTime(0, context)
-        }
-
-        val nowSeconds: Long
-            get() = Calendar.getInstance().timeInMillis / 1000
-    }
-
-    enum class TimerState {
-        Stopped, Paused, Running
-    }
 
     private lateinit var binding: ActivityYogaDetailBinding
     private lateinit var timer: CountDownTimer
@@ -69,6 +37,10 @@ class YogaDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityYogaDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportActionBar?.hide()
+
+        val detail = intent.getStringExtra(EXTRA_DETAIL)
 
         binding.fabPlay.setOnClickListener { v ->
             startTimer()
@@ -86,6 +58,14 @@ class YogaDetailActivity : AppCompatActivity() {
             timer.cancel()
             onTimerFinished()
         }
+
+        val sectionsPagerAdapter = SectionsPagerAdapter(this, detail.toString())
+        val viewPager: ViewPager2 = binding.viewPager
+        viewPager.adapter = sectionsPagerAdapter
+        val tabs: TabLayout = binding.tabs
+        TabLayoutMediator(tabs, viewPager) { tab, position ->
+            tab.text = resources.getString(TAB_TITLES[position])
+        }.attach()
     }
 
     override fun onResume() {
@@ -225,4 +205,40 @@ class YogaDetailActivity : AppCompatActivity() {
         }
     }
 
+    companion object {
+        fun setAlarm(context: Context, nowSeconds: Long, secondsRemaining: Long): Long {
+            val wakeUpTime = (nowSeconds + secondsRemaining) * 1000
+            val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            val intent = Intent(context, TimerExpiredReciver::class.java)
+
+            val pi = PendingIntent.getBroadcast(
+                context,
+                0,
+                intent,
+                FLAG_UPDATE_CURRENT or FLAG_IMMUTABLE
+            )
+
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, wakeUpTime, pi)
+            PrefUtil.setAlarmSetTime(nowSeconds, context)
+            return wakeUpTime
+
+
+        }
+
+        fun removeAlarm(context: Context) {
+            val intent = Intent(context, TimerExpiredReciver::class.java)
+            val pi = PendingIntent.getBroadcast(context, 0, intent, FLAG_UPDATE_CURRENT or FLAG_IMMUTABLE)
+            val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+
+            alarmManager.cancel(pi)
+            PrefUtil.setAlarmSetTime(0, context)
+        }
+
+        val nowSeconds: Long
+            get() = Calendar.getInstance().timeInMillis / 1000
+    }
+
+    enum class TimerState {
+        Stopped, Paused, Running
+    }
 }

@@ -30,4 +30,7 @@
     <string name="pause_button">pause_button</string>
     <string name="stop_button">stop_button</string>
     <string name="settings">settings</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_text_1">Pose Info</string>
+    <string name="tab_text_2">Pose Detection</string>
 </resources>

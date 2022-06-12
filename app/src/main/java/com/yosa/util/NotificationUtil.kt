@@ -14,10 +14,10 @@ import android.media.RingtoneManager
 import android.net.Uri
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import com.yosa.Constanta.Companion.ACTION_PAUSE
-import com.yosa.Constanta.Companion.ACTION_RESUME
-import com.yosa.Constanta.Companion.ACTION_START
-import com.yosa.Constanta.Companion.ACTION_STOP
+import com.yosa.Constanta.ACTION_PAUSE
+import com.yosa.Constanta.ACTION_RESUME
+import com.yosa.Constanta.ACTION_START
+import com.yosa.Constanta.ACTION_STOP
 import com.yosa.R
 import com.yosa.ui.broadcastreceiver.TimerNotificationActionReceiver
 import com.yosa.ui.detail.YogaDetailActivity
