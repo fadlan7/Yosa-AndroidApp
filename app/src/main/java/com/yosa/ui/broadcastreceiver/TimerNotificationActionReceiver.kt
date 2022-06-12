@@ -3,10 +3,10 @@ package com.yosa.ui.broadcastreceiver
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import com.yosa.Constanta.Companion.ACTION_PAUSE
-import com.yosa.Constanta.Companion.ACTION_RESUME
-import com.yosa.Constanta.Companion.ACTION_START
-import com.yosa.Constanta.Companion.ACTION_STOP
+import com.yosa.Constanta.ACTION_PAUSE
+import com.yosa.Constanta.ACTION_RESUME
+import com.yosa.Constanta.ACTION_START
+import com.yosa.Constanta.ACTION_STOP
 import com.yosa.ui.detail.YogaDetailActivity
 import com.yosa.util.NotificationUtil
 import com.yosa.util.PrefUtil

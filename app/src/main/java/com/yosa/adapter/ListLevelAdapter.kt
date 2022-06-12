@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.yosa.data.model.Level
 import com.yosa.databinding.ItemCardBinding
+import com.yosa.ui.detail.YogaDetailActivity
 import com.yosa.ui.yogalist.YogaListActivity
 
 class ListLevelAdapter(private val listLevel: ArrayList<Level>) :
@@ -32,7 +33,7 @@ class ListLevelAdapter(private val listLevel: ArrayList<Level>) :
                 tvLevel.text = level.levelName
 
                 itemView.setOnClickListener {
-                    Intent(itemView.context, YogaListActivity::class.java).also {
+                    Intent(itemView.context, YogaDetailActivity::class.java).also {
                         itemView.context.startActivity(it)
                     }
                 }
