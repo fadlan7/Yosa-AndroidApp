@@ -3,20 +3,34 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19" />
+        <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/drawable/background_button.xml" value="0.19" />
+        <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/drawable/background_search.xml" value="0.19" />
+        <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/drawable/circle_full.xml" value="0.19" />
+        <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/drawable/circle_stroke.xml" value="0.19" />
         <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/drawable/ic_baseline_pause_24.xml" value="0.205" />
         <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/drawable/ic_baseline_play_arrow_24.xml" value="0.205" />
+        <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1695" />
         <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/drawable/ic_baseline_star_24.xml" value="0.205" />
         <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/drawable/ic_baseline_stop_24.xml" value="0.205" />
+        <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/drawable/ic_beginnerimg.xml" value="0.19" />
+        <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/drawable/ic_intermediateimg.xml" value="0.19" />
+        <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/drawable/ic_launcher_background.xml" value="0.19" />
         <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/drawable/progress_circle.xml" value="0.205" />
         <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/layout/activity_main.xml" value="0.20652173913043478" />
+        <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/layout/activity_onboard.xml" value="0.19384057971014493" />
         <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/layout/activity_pose_detail.xml" value="0.20018115942028986" />
-        <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/layout/activity_yoga_detail.xml" value="0.2" />
+        <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/layout/activity_timer_settings.xml" value="0.2" />
+        <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/layout/activity_yoga_detail.xml" value="0.17" />
         <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/layout/activity_yoga_list.xml" value="0.5" />
         <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/layout/content_pose_detail.xml" value="0.20018115942028986" />
         <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/layout/fragment_first.xml" value="0.20018115942028986" />
         <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/layout/fragment_second.xml" value="0.20018115942028986" />
         <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/layout/item_card.xml" value="0.20652173913043478" />
+        <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/layout/item_level.xml" value="0.19384057971014493" />
         <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/menu/menu_timer.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.19" />
+        <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/BARU/Yosa/app/src/main/res/xml/preferences.xml" value="0.19384057971014493" />
         <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/Yosa/app/src/main/res/drawable/ic_beginnerimg.xml" value="0.1785" />
         <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/Yosa/app/src/main/res/drawable/ic_intermediateimg.xml" value="0.1785" />
         <entry key="..\:/Users/Fadlan/Documents/BANGKIT_2022_MOBILE_DEVELOPMENT/Yosa/app/src/main/res/layout/activity_main.xml" value="0.18" />

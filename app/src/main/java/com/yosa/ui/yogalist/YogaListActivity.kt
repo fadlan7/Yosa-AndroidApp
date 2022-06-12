@@ -13,14 +13,6 @@ class YogaListActivity : AppCompatActivity() {
         binding = ActivityYogaListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val level = intent.getParcelableExtra<Level>(EXTRA_LEVEL) as Level
-
-        binding.apply {
-            tvLevel.text = level.levelName
-        }
-    }
-
-    companion object {
-        const val EXTRA_LEVEL = "extra_level"
+        supportActionBar?.hide()
     }
 }
