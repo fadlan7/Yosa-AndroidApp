@@ -11,14 +11,14 @@ import com.yosa.Constanta.EXTRA_POSE_DESC
 import com.yosa.Constanta.EXTRA_POSE_LEVEL
 import com.yosa.Constanta.EXTRA_POSE_NAME
 import com.yosa.R
-import com.yosa.data.model.PoseResponseItem
+import com.yosa.data.model.PosesItem
 import com.yosa.databinding.ItemCardBinding
 import com.yosa.ui.detail.YogaDetailActivity
 
 //private val gson = Gson()
 //val poseList: List<PoseResponseItem> = gson.fromJson(body, Array<PoseResponseItem>::class.java).toList()
 
-class ListPoseAdapter(private val listPose: MutableList<PoseResponseItem>) :
+class ListPoseAdapter(private val listPose: MutableList<PosesItem>) :
     RecyclerView.Adapter<ListPoseAdapter.ListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -44,7 +44,7 @@ class ListPoseAdapter(private val listPose: MutableList<PoseResponseItem>) :
 
                 moveToDetail.putExtra(EXTRA_POSE_NAME, pose.namePose)
                 moveToDetail.putExtra(EXTRA_POSE_DESC, pose.descPose)
-                moveToDetail.putExtra(EXTRA_POSE_LEVEL,  pose.level)
+//                moveToDetail.putExtra(EXTRA_POSE_LEVEL, pose.level)
 //                moveToDetail.putExtra(EXTRA_POSE_IMG, pose.images)
                 itemView.context.startActivity(moveToDetail)
             }
@@ -55,7 +55,7 @@ class ListPoseAdapter(private val listPose: MutableList<PoseResponseItem>) :
         return listPose.size
     }
 
-    fun addPose(newLevel: PoseResponseItem) {
+    fun addPose(newLevel: PosesItem) {
         listPose.add(newLevel)
         notifyItemInserted(listPose.lastIndex)
     }

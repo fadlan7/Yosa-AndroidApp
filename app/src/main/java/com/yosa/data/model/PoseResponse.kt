@@ -4,42 +4,42 @@ import com.google.gson.annotations.SerializedName
 
 data class PoseResponse(
 
-	@field:SerializedName("PoseResponse")
-	val poseResponse: List<PoseResponseItem>? = null
+	@field:SerializedName("poses")
+	val poses: List<PosesItem>
 )
 
 data class Level(
 
 	@field:SerializedName("nameLevel")
-	val nameLevel: String? = null,
+	val nameLevel: String,
 
 	@field:SerializedName("id")
-	val id: Int? = null,
-)
-
-data class PoseResponseItem(
-
-	@field:SerializedName("images")
-	val images: List<ImagesItem>? = null,
-
-	@field:SerializedName("descPose")
-	val descPose: String? = null,
-
-	@field:SerializedName("level")
-	val level: String? = null,
-
-	@field:SerializedName("id")
-	val id: Int? = null,
-
-	@field:SerializedName("namePose")
-	val namePose: String? = null
+	val id: Int
 )
 
 data class ImagesItem(
 
 	@field:SerializedName("id")
-	val id: Int? = null,
+	val id: Int,
 
 	@field:SerializedName("urlImage")
-	val urlImage: String? = null
+	val urlImage: String
+)
+
+data class PosesItem(
+
+	@field:SerializedName("images")
+	val images: List<ImagesItem>,
+
+	@field:SerializedName("descPose")
+	val descPose: String,
+
+	@field:SerializedName("level")
+	val level: Level,
+
+	@field:SerializedName("id")
+	val id: Int,
+
+	@field:SerializedName("namePose")
+	val namePose: String
 )

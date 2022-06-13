@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.GsonBuilder
 import com.yosa.adapter.ListPoseAdapter
 import com.yosa.data.model.PoseResponse
-import com.yosa.data.model.PoseResponseItem
+import com.yosa.data.model.PosesItem
 import com.yosa.data.setting.ApiConfig
 import com.yosa.databinding.ActivityYogaListBinding
 import retrofit2.Call
@@ -46,16 +46,10 @@ class YogaListActivity : AppCompatActivity() {
         level.enqueue(object : Callback<PoseResponse> {
             override fun onResponse(call: Call<PoseResponse>, response: Response<PoseResponse>) {
                 if (response.isSuccessful) {
-                    val dataArray = response.body()?.poseResponse as List<PoseResponseItem>
+                    val dataArray = response.body()?.poses as List<PosesItem>
 
-//                    val filterNull = dataArray.filterNotNull()
-
-                    if (dataArray != null) {
-                        for (data in dataArray) {
-                            poseAdapter.addPose(data)
-                        }
-                    }else {
-                        ""
+                    for (data in dataArray) {
+                        poseAdapter.addPose(data)
                     }
                 }
             }
