@@ -10,7 +10,7 @@
     <string name="get_started">Get Started</string>
     <string name="title_home">Select Your \nDifficulty Level!</string>
     <string name="search">Find your pose</string>
-    <string name="description_level">Yoga Level: Beginner or Intermediate</string>
+    <string name="description_level">Yoga Pose Name</string>
 
     <string-array name="data_level">
         <item>Beginner</item>

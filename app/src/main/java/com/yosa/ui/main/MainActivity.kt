@@ -19,7 +19,13 @@ import com.yosa.ViewModelFactory
 import com.yosa.adapter.ListLevelAdapter
 import com.yosa.data.PreferenceDataStore
 import com.yosa.databinding.ActivityMainBinding
-import com.yosa.data.model.Level
+import com.yosa.data.model.LevelLocal
+import com.yosa.data.model.LevelResponse
+import com.yosa.data.model.LevelsItem
+import com.yosa.data.setting.ApiConfig
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,13 +33,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var mainViewModel: MainViewModel
     private lateinit var yogaAdapter: ListLevelAdapter
-    private val listLevel = ArrayList<Level>()
+    private val listLevel = ArrayList<LevelLocal>()
 
     companion object {
-        const val CAMERA_X_RESULT = 200
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
         private const val REQUEST_CODE_PERMISSIONS = 10
     }
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String>,
@@ -51,6 +57,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
@@ -73,34 +80,56 @@ class MainActivity : AppCompatActivity() {
 
         setupViewModel()
         setupRecyclerView()
-        getLevel()
+        getYogaLevel()
+//        getLevel()
     }
 
     private fun setupViewModel() {
         val pref = PreferenceDataStore.getInstance(dataStore)
         mainViewModel = ViewModelProvider(this, ViewModelFactory(pref))[MainViewModel::class.java]
 
-        mainViewModel.getOnboard().observe(this){}
+        mainViewModel.getOnboard().observe(this) {}
     }
 
     private fun setupRecyclerView() {
-        yogaAdapter = ListLevelAdapter(listLevel)
+        yogaAdapter = ListLevelAdapter(mutableListOf())
 
         binding.rvLevel.apply {
             adapter = yogaAdapter
-            setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(this@MainActivity)
+//            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(context)
+            isNestedScrollingEnabled = false
         }
     }
 
-    @SuppressLint("Recycle")
-    private fun getLevel() {
-        val dataName = resources.getStringArray(R.array.data_level)
-        val dataPhoto = resources.obtainTypedArray(R.array.data_photo)
-        for(i in dataName.indices) {
-            val level = Level(dataName[i], dataPhoto.getResourceId(i, -1))
-            this@MainActivity.listLevel.add(level)
-        }
-    }
+//    @SuppressLint("Recycle")
+//    private fun getLevel() {
+//        val dataName = resources.getStringArray(R.array.data_level)
+//        val dataPhoto = resources.obtainTypedArray(R.array.data_photo)
+//        for (i in dataName.indices) {
+//            val level = LevelLocal(dataName[i], dataPhoto.getResourceId(i, -1))
+//            this@MainActivity.listLevel.add(level)
+//        }
+//    }
 
+    private fun getYogaLevel() {
+        val level = ApiConfig.getApiService().getLevels()
+
+        level.enqueue(object : Callback<LevelResponse> {
+            override fun onResponse(call: Call<LevelResponse>, response: Response<LevelResponse>) {
+                if (response.isSuccessful) {
+                    val dataArray = response.body()?.levels as List<LevelsItem>
+
+                    for (data in dataArray) {
+                        yogaAdapter.addLevel(data)
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<LevelResponse>, t: Throwable) {
+                Toast.makeText(this@MainActivity, t.message, Toast.LENGTH_SHORT).show()
+                t.printStackTrace()
+            }
+        })
+    }
 }

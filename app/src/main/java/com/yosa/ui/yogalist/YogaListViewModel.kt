@@ -16,31 +16,31 @@ class YogaListViewModel : ViewModel() {
     val load = MutableLiveData(View.VISIBLE)
     val error = MutableLiveData<String>()
 
-    fun getYogaData(username: String) {
-        val client = ApiConfig.getApiService().getUser(username)
-
-        client.enqueue(object : Callback<YogaResponse> {
-            @SuppressLint("NullSafeMutableLiveData")
-            override fun onResponse(
-                call: Call<YogaResponse>,
-                response: Response<YogaResponse>,
-            ) {
-                if (response.isSuccessful) {
-                    val data = response.body()
-                    yogaData.postValue(data)
-                    load.postValue(View.GONE)
-                } else {
-                    Log.e(TAG, "onFailure: ${response.message()} ")
-                    error.postValue(response.message())
-                }
-            }
-
-            override fun onFailure(call: Call<YogaResponse>, t: Throwable) {
-                Log.e(TAG, "onFailure: $t")
-                error.postValue(t.message)
-            }
-        })
-    }
+//    fun getYogaData(username: String) {
+//        val client = ApiConfig.getApiService().getUser(username)
+//
+//        client.enqueue(object : Callback<YogaResponse> {
+//            @SuppressLint("NullSafeMutableLiveData")
+//            override fun onResponse(
+//                call: Call<YogaResponse>,
+//                response: Response<YogaResponse>,
+//            ) {
+//                if (response.isSuccessful) {
+//                    val data = response.body()
+//                    yogaData.postValue(data)
+//                    load.postValue(View.GONE)
+//                } else {
+//                    Log.e(TAG, "onFailure: ${response.message()} ")
+//                    error.postValue(response.message())
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<YogaResponse>, t: Throwable) {
+//                Log.e(TAG, "onFailure: $t")
+//                error.postValue(t.message)
+//            }
+//        })
+//    }
 
     companion object {
         const val TAG = "DetailViewModel"

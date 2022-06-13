@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Level(
+data class LevelLocal(
     var levelName: String,
     var photo: Int,
 ) : Parcelable
