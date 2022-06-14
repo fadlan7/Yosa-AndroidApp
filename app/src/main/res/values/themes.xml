@@ -16,8 +16,4 @@
         <item name="android:fontFamily">@font/regular_lato</item>
     </style>
 
-    <style name="Theme.Yosa.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
 </resources>

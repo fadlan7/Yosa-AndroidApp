@@ -17,41 +17,6 @@ import com.yosa.databinding.ItemCardBinding
 import com.yosa.databinding.ItemCardLevelBinding
 import com.yosa.ui.yogalist.YogaListActivity
 
-//
-//class ListLevelAdapter(private val listLevel: ArrayList<LevelLocal>) :
-//    RecyclerView.Adapter<ListLevelAdapter.ListViewHolder>() {
-//
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
-//        val binding = ItemCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-//        return ListViewHolder(binding)
-//    }
-//
-//    override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-//        holder.bind(listLevel[position])
-//    }
-//
-//    override fun getItemCount(): Int {
-//        return listLevel.size
-//    }
-//
-//    class ListViewHolder(private var binding: ItemCardBinding) :
-//        RecyclerView.ViewHolder(binding.root) {
-//        fun bind(level: LevelLocal) {
-//            binding.apply {
-//                imgLevel.setImageResource(level.photo)
-//                tvLevel.text = level.levelName
-//
-//                itemView.setOnClickListener {
-//                    Intent(itemView.context, YogaDetailActivity::class.java).also {
-//                        itemView.context.startActivity(it)
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}
-
-
 class ListLevelAdapter(private val listLevel: MutableList<LevelsItem>) :
     RecyclerView.Adapter<ListLevelAdapter.ListViewHolder>() {
 

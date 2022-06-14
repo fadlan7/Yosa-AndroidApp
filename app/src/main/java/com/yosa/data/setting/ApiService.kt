@@ -2,7 +2,6 @@ package com.yosa.data.setting
 
 import com.yosa.data.model.LevelResponse
 import com.yosa.data.model.PoseResponse
-import com.yosa.data.model.YogaResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

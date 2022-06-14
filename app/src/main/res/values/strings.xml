@@ -12,25 +12,10 @@
     <string name="search">Find your pose</string>
     <string name="description_level">Yoga Pose Name</string>
 
-    <string-array name="data_level">
-        <item>Beginner</item>
-        <item>Intermediate</item>
-    </string-array>
-
-    <integer-array name="data_photo">
-        <item>@drawable/ic_beginnerimg</item>
-        <item>@drawable/ic_intermediateimg</item>
-    </integer-array>
-
-    <string name="title_activity_pose_detail">PoseDetailActivity</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
     <string name="play_button">play_button</string>
     <string name="pause_button">pause_button</string>
     <string name="stop_button">stop_button</string>
-    <string name="settings">settings</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tab_text_1">Pose Info</string>
     <string name="tab_text_2">Pose Detection</string>
     <string name="img_desc_pose">Pose Picture</string>
