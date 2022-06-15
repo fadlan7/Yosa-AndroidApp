@@ -1,22 +1,25 @@
 package com.yosa.adapter
 
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.yosa.Communicator
 import com.yosa.Constanta.EXTRA_POSE_DESC
+import com.yosa.Constanta.EXTRA_POSE_IMG
 import com.yosa.Constanta.EXTRA_POSE_LEVEL
 import com.yosa.Constanta.EXTRA_POSE_NAME
 import com.yosa.R
 import com.yosa.data.model.PosesItem
 import com.yosa.databinding.ItemCardBinding
 import com.yosa.ui.detail.YogaDetailActivity
-
-//private val gson = Gson()
-//val poseList: List<PoseResponseItem> = gson.fromJson(body, Array<PoseResponseItem>::class.java).toList()
+import com.yosa.ui.detail.poseinfo.PoseInfoFragment
 
 class ListPoseAdapter(private val listPose: MutableList<PosesItem>) :
     RecyclerView.Adapter<ListPoseAdapter.ListViewHolder>() {
@@ -34,7 +37,7 @@ class ListPoseAdapter(private val listPose: MutableList<PosesItem>) :
             poseName.text = pose.namePose
 
             Glide.with(holder.itemView.context)
-                .load(pose.images)
+                .load(pose.images.lastIndex)
                 .placeholder(R.drawable.ic_beginnerimg)
                 .error(R.drawable.ic_beginnerimg)
                 .into(imgLevel)
@@ -44,12 +47,13 @@ class ListPoseAdapter(private val listPose: MutableList<PosesItem>) :
 
                 moveToDetail.putExtra(EXTRA_POSE_NAME, pose.namePose)
                 moveToDetail.putExtra(EXTRA_POSE_DESC, pose.descPose)
-//                moveToDetail.putExtra(EXTRA_POSE_LEVEL, pose.level)
-//                moveToDetail.putExtra(EXTRA_POSE_IMG, pose.images)
+                moveToDetail.putExtra(EXTRA_POSE_LEVEL, pose.level.nameLevel)
+                moveToDetail.putExtra(EXTRA_POSE_IMG, pose.images.lastIndex)
                 itemView.context.startActivity(moveToDetail)
             }
         }
     }
+
 
     override fun getItemCount(): Int {
         return listPose.size
@@ -61,7 +65,7 @@ class ListPoseAdapter(private val listPose: MutableList<PosesItem>) :
     }
 
     class ListViewHolder(binding: ItemCardBinding) : RecyclerView.ViewHolder(binding.root) {
-        var imgLevel: ImageView = binding.imgLevel
-        var poseName: TextView = binding.tvLevel
+        var imgLevel: ImageView = binding.imgPose
+        var poseName: TextView = binding.tvPoseName
     }
 }

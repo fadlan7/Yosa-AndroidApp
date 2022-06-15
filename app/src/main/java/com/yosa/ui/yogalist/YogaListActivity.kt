@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.GsonBuilder
+import com.yosa.Constanta
+import com.yosa.Constanta.EXTRA_LEVELS
+import com.yosa.Constanta.EXTRA_POSE_NAME
 import com.yosa.adapter.ListPoseAdapter
 import com.yosa.data.model.PoseResponse
 import com.yosa.data.model.PosesItem
@@ -27,6 +30,9 @@ class YogaListActivity : AppCompatActivity() {
 
         setupRecyclerView()
         getYogaPose()
+
+        val levelName = intent.getStringExtra(EXTRA_LEVELS)
+        binding.tvLevelName.text = levelName
     }
 
     private fun setupRecyclerView() {

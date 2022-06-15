@@ -6,10 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.yosa.Constanta.EXTRA_DETAIL
+import com.yosa.Constanta.EXTRA_POSE_DESC
+import com.yosa.Constanta.EXTRA_POSE_IMG
+import com.yosa.Constanta.EXTRA_POSE_LEVEL
+import com.yosa.Constanta.EXTRA_POSE_NAME
 import com.yosa.R
+import com.yosa.databinding.FragmentPoseInfoBinding
 
 class PoseInfoFragment : Fragment() {
     private var param1: String? = null
+    private lateinit var binding: FragmentPoseInfoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,9 +27,20 @@ class PoseInfoFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pose_info, container, false)
+    ): View {
+        binding = FragmentPoseInfoBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val poseName = arguments?.getString(EXTRA_POSE_NAME)
+        val poseDesc = arguments?.getString(EXTRA_POSE_DESC)
+        val poseLevel = arguments?.getString(EXTRA_POSE_LEVEL)
+        val poseImg = arguments?.getString(EXTRA_POSE_IMG)
+        binding.apply {
+            tvPoseName.text = poseName
+            tvPoseDesc.text = poseDesc
+        }
     }
 
     companion object {

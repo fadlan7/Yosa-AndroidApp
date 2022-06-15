@@ -19,7 +19,6 @@ import com.yosa.ViewModelFactory
 import com.yosa.adapter.ListLevelAdapter
 import com.yosa.data.PreferenceDataStore
 import com.yosa.databinding.ActivityMainBinding
-import com.yosa.data.model.LevelLocal
 import com.yosa.data.model.LevelResponse
 import com.yosa.data.model.LevelsItem
 import com.yosa.data.setting.ApiConfig
@@ -33,7 +32,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var mainViewModel: MainViewModel
     private lateinit var yogaAdapter: ListLevelAdapter
-    private val listLevel = ArrayList<LevelLocal>()
 
     companion object {
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
